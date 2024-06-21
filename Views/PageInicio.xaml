@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tarea_1._3_Aplicacion_de_Autores.Views.PageInicio"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
+             Title="Site Visitor APP">
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+
+
+            <Image x:Name="foto" BackgroundColor="AliceBlue" HeightRequest="308" WidthRequest="300"
+               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Button Text="Capturar una imagen" x:Name="btnFoto" Clicked="btnFoto_Clicked"/>
+
+            <maps:Map x:Name="map" IsVisible="False">
+                <maps:Map.ItemTemplate>
+                    <DataTemplate x:DataType="maps:Pin">
+                        <maps:Pin Location="{Binding Location}"
+                                  Address="{Binding Address}"
+                                  Label="{Binding Label}"/>
+                    </DataTemplate>
+                </maps:Map.ItemTemplate>
+
+            </maps:Map>
+            <Entry x:Name="Latitud" Placeholder="Latitud" IsEnabled="False" Keyboard="Numeric"/>
+            <Entry x:Name="Longitud" Placeholder="Longitud" IsEnabled="False" Keyboard="Numeric"/>
+            <Entry x:Name="Descripcion" Placeholder="Ingrese una descripción" Keyboard="Text"/>
+
+            <Button x:Name="btnguardar" Text="Guardar" Clicked="GetValueDescription"/>
+            
+            <Button x:Name="btnverlista" Text="Ver Lista" Clicked="btnverlista_Clicked"/>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>
